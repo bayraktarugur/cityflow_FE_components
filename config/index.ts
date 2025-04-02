@@ -1,3 +1,4 @@
-export const locales = ['en', 'ar'];
+export const locales = ['en', 'ar', 'de'];
 
-export const baseURL = process.env.NEXT_PUBLIC_SITE_URL + "/api";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+export const baseURL = `${siteUrl}/api`;

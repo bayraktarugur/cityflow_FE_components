@@ -16,6 +16,27 @@ import AuthProvider from "@/providers/auth.provider";
 export const metadata: Metadata = {
   title: "Dashcode admin Template",
   description: "created by codeshaper",
+  icons: {
+    icon: [
+      {
+        url: '/images/all-img/icon.gif',
+        sizes: '32x32',
+        type: 'image/gif',
+      },
+      {
+        url: '/images/all-img/icon.gif',
+        sizes: '16x16',
+        type: 'image/gif',
+      }
+    ],
+    apple: [
+      {
+        url: '/images/all-img/icon.gif',
+        sizes: '180x180',
+        type: 'image/gif',
+      }
+    ]
+  }
 };
 
 export default async function RootLayout({
