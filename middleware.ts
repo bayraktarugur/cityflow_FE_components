@@ -1,6 +1,7 @@
 import createMiddleware from 'next-intl/middleware';
 import {NextRequest, NextResponse} from 'next/server';
-import {locales} from '@/config';
+
+const locales = ['en', 'ar'];
 
 export default async function middleware(request: NextRequest) {
   
