@@ -13,4 +13,4 @@ export const config = {
   matcher: ['/', '/(ar|en)/:path*']
 };
 
-export const runtime = 'edge';
+export const runtime = 'experimental-edge';
