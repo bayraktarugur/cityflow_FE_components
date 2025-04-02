@@ -20,16 +20,17 @@ export default function LocalSwitcher() {
 
     const onSelectChange = (nextLocale: string) => {
         startTransition(() => {
-
+            // Verwende die next-intl Router-Methode für die Navigation
             router.replace(pathname, { locale: nextLocale });
         });
     };
+
     return (
         <Select onValueChange={onSelectChange} defaultValue={localActive}>
             <SelectTrigger className='w-[94px] border-none read-only:bg-transparent cursor-pointer'>
-                <SelectValue placeholder="Select a language" />
+                <SelectValue placeholder="Sprache wählen" />
             </SelectTrigger>
-            <SelectContent >
+            <SelectContent>
                 <SelectItem
                     value="en"
                     className='border-none cursor-pointer'
@@ -57,8 +58,19 @@ export default function LocalSwitcher() {
                         <span className='font-medium text-sm text-default-600 dark:text-default-700'>Ar</span>
                     </div>
                 </SelectItem>
+                <SelectItem className='cursor-pointer' value="de">
+                    <div className='flex items-center gap-1'>
+                        <Image
+                            src="/images/all-img/flag-3.png"
+                            alt='flag'
+                            width={24}
+                            height={24}
+                            className='w-6 h-6 rounded-full'
+                        />
+                        <span className='font-medium text-sm text-default-600 dark:text-default-700'>De</span>
+                    </div>
+                </SelectItem>
             </SelectContent>
         </Select>
-
     );
 }
