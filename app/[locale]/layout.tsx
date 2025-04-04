@@ -19,19 +19,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/images/all-img/icon.gif',
+        url: '/images/logo/icon.gif',
         sizes: '32x32',
         type: 'image/gif',
       },
       {
-        url: '/images/all-img/icon.gif',
+        url: '/images/logo/icon.gif',
         sizes: '16x16',
         type: 'image/gif',
       }
     ],
     apple: [
       {
-        url: '/images/all-img/icon.gif',
+        url: '/images/logo/icon.gif',
         sizes: '180x180',
         type: 'image/gif',
       }
