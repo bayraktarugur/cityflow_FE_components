@@ -1,9 +1,10 @@
 import createMiddleware from 'next-intl/middleware';
-import {NextRequest, NextResponse} from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import { auth } from '@/lib/auth';
 
 const locales = ['en', 'ar', 'de'];
 
-export default createMiddleware({
+const intlMiddleware = createMiddleware({
   locales,
   defaultLocale: 'en',
   localePrefix: 'always',
@@ -43,6 +44,17 @@ export default createMiddleware({
   }
 });
 
+export async function middleware(request: NextRequest) {
+  const session = await auth();
+  
+  // Auth-Schutz für geschützte Routen
+  if (request.nextUrl.pathname.startsWith('/(protected)') && !session) {
+    return NextResponse.redirect(new URL('/auth/signin', request.url));
+  }
+
+  return intlMiddleware(request);
+}
+
 export const config = {
-  matcher: ['/', '/(ar|en|de)/:path*']
+  matcher: ['/', '/(ar|en|de)/:path*', '/(protected)/:path*']
 };
