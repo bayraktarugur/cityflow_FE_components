@@ -18,14 +18,14 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     GitHub,
     CredentialsProvider({
       credentials: {
-        email: {},
-        password: {},
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
         
         try {
-          const user = getUserByEmail(credentials.email);
+          const user = getUserByEmail(credentials.email as string);
           if (user) {
             const isMatch = user?.password === credentials.password;
             if (isMatch) {
